@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ATM</h1>
+    <!-- //<form onsubmit="checkPin(); return false"> --> -->
+        Enter Your Pin Code
+        <!-- <input type="number" id="userinputPin" required> -->
+        <!-- <button>confirm</button> -->
+    </form>
+
+    <!-- <h4 id="errorMessage"></h4> -->
+    <!-- <div id="homeScreen" style="display:none;"> -->
+    <!-- <form onsubmit="withdraw(); return false"> -->
+        Enter Your Amount to withdraw:
+        <!-- <input type="number" id="userInputAmount" required> -->
+        <!-- <button>withdraw</button> -->
+    
+    </form>
+    
+    
+    </div>
+    <form onsubmit="checkPin(); return false">
+
+        <h3>ATM machine</h3>
+
+        Enter your pin:
+
+        <input type="number" id="userInputPin" required>
+        <button>Confirm</button>
+    </form>
+
+    <h4 id="errorMessage"></h4>
+
+
+    <div id="homeScreen">
+
+    </div>
+
+
+    <script>
+        // atm machine money box
+        let moneyBox = 22000; 
+        let cardDailyLimit = 20000;
+        let accountBalance = 50000;
+
+
+        function checkPin() {
+            console.log("I am checking pin");
+
+            let userInputPin = document.querySelector("#userInputPin").value;
+
+            if (userInputPin.length < 4) {
+                document.querySelector("#errorMessage").innerHTML = `you must enter 4 digit pin number`;
+                return;
+            }
+            if (userInputPin.length > 4) {
+                document.querySelector("#errorMessage").innerHTML = `you must enter 4 digit pin number`;
+                return;
+            }
+
+            if (userInputPin === "1245") {
+                document.querySelector("#errorMessage").innerHTML = `Correct pin number ✅`;
+
+                document.getElementById("#homeScreen").innerHTML = `
+                <form onsubmit="withdraw(); return false">
+
+                    Enter your amount to withdraw:
+                    <input type="number" id="userInputAmount" required>
+                    <button>WithDraw</button>
+                </form>
+
+                `
+
+                return;
+            }
+            if (userInputPin !== "5112") {
+                document.querySelector("#errorMessage").innerHTML = `Incorrect pin number ❌`;
+                return;
+            }
+
+        }
+
+        function withDraw() {
+            let amount = document.querySelector("#userInputAmount").value;
+            if (amount > moneyBox) {
+                console.log("this machine dont have enough money, please try smaller amount");
+            }
+            
+            
+
+        }
+        </script>
+
+</body>
+</html>
