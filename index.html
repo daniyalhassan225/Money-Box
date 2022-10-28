@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Money Box</title>
 </head>
 
 <body>
@@ -103,7 +103,7 @@
             }
             else {
                 document.querySelector("#enoughMoney").innerHTML = `Withdraw has been Done successfully 🎉`
-                
+
                 moneyBox = moneyBox - userInputAmount;
                 cardDailylimit = cardDailylimit - userInputAmount;
                 accountBalance = accountBalance - userInputAmount;
@@ -118,11 +118,11 @@
 
 
 
-        }               
+        }
 
-                document.getElementById("moneyBox").innerHTML = moneyBox;
-                document.getElementById("cardDailylimit").innerHTML = cardDailylimit;
-                document.getElementById("accountBalance").innerHTML = accountBalance;
+        document.getElementById("moneyBox").innerHTML = moneyBox;
+        document.getElementById("cardDailylimit").innerHTML = cardDailylimit;
+        document.getElementById("accountBalance").innerHTML = accountBalance;
 
 
 
