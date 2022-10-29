@@ -22,13 +22,19 @@
 
     <div id="homeScreen"></div>
     <div id="errorMessage"></div>
-    <div id="enoughMoney"></div>
-    <div id="moneyBox"></div>
-    <div id="cardDailylimit"></div>
-    <div id="accountBalance"></div>
+    <br>
+    <div id="enoughMoney" style="color: red;"></div>
+
+    <br><br>
+
+    <h1>Money Box <span id="moneyBox"></span></h1>
+    <h1>Card Daily Limit <span id="cardDailylimit"></span></h1>
+    <h1>Account Balance <span id="accountBalance"></span></h1>
+
 
 
     <script>
+
         let moneyBox = 25000;
         let cardDailylimit = 20000;
         let accountBalance = 60000;
@@ -56,10 +62,9 @@
                 Enter your amount to withdraw:
                 <input type="number" id="userInputAmount" required>
                 <button>withdraw</button>
-                </form>
-                
-                
-                `
+
+                </form>`
+
                 return;
             }
             if (userinputPin !== "1245") {
@@ -71,7 +76,7 @@
         }
 
         function withdraw() {
-            console.log("Withdraw funtion running...");
+            console.log("Withdraw function running...");
 
             let userInputAmount = +document.querySelector("#userInputAmount").value;
 
@@ -91,9 +96,7 @@
                 return;
             }
 
-
-
-            if (userInputAmount < "500") {
+            if (userInputAmount < 500) {
                 document.querySelector("#enoughMoney").innerHTML = `Please enter more than 500Rs`
                 return;
             }
@@ -101,21 +104,23 @@
             if (userInputAmount % 500) {
                 document.querySelector("#enoughMoney").innerHTML = `Please Enter 500 multiply means 500, 1000, 1500, 2000 etc`
                 return;
-                
+
             }
-          
+
             else {
+
                 document.querySelector("#enoughMoney").innerHTML = `Withdraw has been Done successfully 🎉`
 
                 moneyBox = moneyBox - userInputAmount;
                 cardDailylimit = cardDailylimit - userInputAmount;
                 accountBalance = accountBalance - userInputAmount;
 
-                console.log(moneyBox, cardDailylimit, accountBalance)
+                console.log(moneyBox, cardDailylimit, accountBalance);
 
                 document.getElementById("moneyBox").innerHTML = moneyBox;
                 document.getElementById("cardDailylimit").innerHTML = cardDailylimit;
                 document.getElementById("accountBalance").innerHTML = accountBalance;
+
                 return;
             }
 
